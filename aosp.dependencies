@@ -24,6 +24,12 @@
     "remote": "github"
   },
   {
+    "repository": "userariii/hardware_motorolaDolby",
+    "target_path": "hardware/motorolaDolby",
+    "branch": "v1.1",
+    "remote": "github"
+  },
+  {
     "repository": "AOSP-clang/tree/clang-r498229b",
     "target_path": "prebuilts/clang/host/linux-x86/clang-r498229b",
     "branch": "clang-r498229b",
