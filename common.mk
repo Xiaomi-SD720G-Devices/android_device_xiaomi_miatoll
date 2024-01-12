@@ -169,6 +169,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor
 
+# Dolby - OP
+$(call inherit-product, hardware/dolby/dolby.mk)
+
 # Dolby - Vision
 $(call inherit-product, hardware/Dolby-Vision/dolby-vision.mk)
 
