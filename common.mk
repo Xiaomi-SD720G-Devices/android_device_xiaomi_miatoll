@@ -169,9 +169,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0.vendor
 
-# Dolby
-$(call inherit-product, hardware/Motorola/Dolby/dolby-setup.mk)
-
 # Dolby - Vision
 $(call inherit-product, hardware/Dolby-Vision/dolby-vision.mk)
 

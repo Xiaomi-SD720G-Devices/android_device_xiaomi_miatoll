@@ -54,10 +54,6 @@ function blob_fixup() {
     vendor/lib64/camera/components/com.qti.node.watermark.so)
     "${PATCHELF}" --add-needed "libwatermark_shim.so" "${2}"
     ;;
-    # Dolby Patches
-    vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy)
-    echo 'madvise: 1' >> ${2}
-    ;;
     vendor/bin/hw/dolbycodec2)
     patchelf --replace-needed libcodec2_hidl@1.0.so libcodec2_hidl@1.0.stock.so "${2}"
     ;;
