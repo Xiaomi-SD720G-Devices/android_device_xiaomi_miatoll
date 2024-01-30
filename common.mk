@@ -380,9 +380,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     SM6250Frameworks \
-    TelephonyResCommon \
-    ApertureOverlay \
-    ApertureDevOverlay
+    TelephonyResCommon
+
+PRODUCT_PACKAGES += \
+   ApertureOverlay \
+   ApertureDevOverlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
