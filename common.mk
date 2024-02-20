@@ -372,21 +372,18 @@ TARGET_SHIPS_GALLERY := false
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 
-# Notch
-PRODUCT_PACKAGES += \
-    NotchBarKiller
-
 # Overlays
-PRODUCT_PACKAGES += \
-    CarrierConfigResCommon \
-    SM6250Frameworks \
-    TelephonyResCommon
-
-PRODUCT_PACKAGES += \
-   ApertureOverlay \
-   ApertureDevOverlay
-
 PRODUCT_ENFORCE_RRO_TARGETS := *
+
+PRODUCT_PACKAGES += \
+    ApertureDevOverlay \
+    ApertureOverlay \
+    CarrierConfigResCommon \
+    NotchBarKiller \
+    SM6250Frameworks \
+    SM6250SystemUI \
+    TelephonyResCommon \
+    TetheringConfigOverlay
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -534,10 +531,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
-
-# Tethering
-PRODUCT_PACKAGES += \
-    TetheringConfigOverlay
 
 # TextClassifier
 PRODUCT_PACKAGES += \
