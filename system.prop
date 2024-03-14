@@ -1,10 +1,5 @@
 # Audio
-use.voice.path.for.pcm.voip=true
-ro.config.media_vol_default=10
-ro.config.vc_call_vol_steps=11
-ro.vendor.audio.voice.volume.boost=manual
-persist.audio.button_jack.profile=volume
-persist.audio.button_jack.switch=0
+audio.offload.min.duration.secs=30
 
 #set side fingerprint
 ro.hardware.fp.sideCap=true
