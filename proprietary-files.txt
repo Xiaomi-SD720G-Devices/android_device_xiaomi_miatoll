@@ -83,6 +83,9 @@ vendor/lib/libsurround_3mic_proc.so
 vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libshoebox.so
 
+# Audio (Spatial audio)
+vendor/lib64/soundfx/libspatialaudio.so
+
 # Battery
 vendor/bin/batterysecret
 vendor/etc/init/init.batterysecret.rc
@@ -407,6 +410,8 @@ vendor/lib64/camera/com.qti.sensormodule.sunny_s5kgw1_mirrorflip.bin|a3a755a5b11
 vendor/lib64/camera/com.qti.tuned.sunny_gc02m1.bin|188b18e794fcc417f479b878b6ab9d51d4951878
 vendor/lib64/camera/com.qti.tuned.sunny_s5kgw1.bin|6ab3770bdb571fa89870bd3dfb8a081cf9f02842
 
+vendor/lib64/camera/com.qti.sensormodule.sunny_hi556.bin
+
 # Camera sensors - excalibur
 vendor/lib/camera/com.qti.sensormodule.sunny_ov32a1q.bin|c97a60bf1b3cd584fa4eb80495ad3ced41cb64a3
 vendor/lib/camera/com.qti.tuned.sunny_ov32a1q.bin|e3c8cb221d8bbfd82f81063dbff148d28136390f
@@ -424,6 +429,7 @@ vendor/lib64/libmegface.so
 
 # Camera provider
 vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
+vendor/lib64/vendor.qti.hardware.camera.device@1.0.so
 vendor/lib64/vendor.qti.hardware.camera.device@3.5.so
 vendor/lib64/camera.device@1.0-impl.so
 vendor/lib64/camera.device@3.2-impl.so
@@ -445,6 +451,7 @@ vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
 
 # Charger
+vendor/xiaomi/miatoll/proprietary/bin/charger
 vendor/bin/hvdcp_opti
 vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 vendor/etc/charger_fstab.qti
@@ -535,6 +542,7 @@ system_ext/etc/init/dpmd.rc|738b638ff04cda368e22c03e16baf90ba157a6fc
 system_ext/etc/permissions/com.qti.dpmframework.xml|c4b7ad0879d00c1eba4f3fe3a88ddb8aa153629a
 system_ext/etc/permissions/dpmapi.xml|255903759a60a31c0876ec004e74554c753270fe
 system_ext/framework/com.qti.dpmframework.jar|06871af3c26d8357a250276948112d8eae105e01
+system_ext/framework/dpmapi.jar
 system_ext/framework/dpmapi.jar|556f859768e370414eb91b0e5aaab619d655e2d8
 system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so|62e5bfe5c7525844a828e89360fde9694a7cdf96
 system_ext/lib64/libdiag_system.so|77942ed36661cf3e47cd04c7d8323b6bf5f743b5
@@ -669,6 +677,45 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
+
+# GNSS
+vendor/app/CACertService/CACertService.apk
+vendor/bin/loc_launcher
+vendor/bin/lowi-server
+vendor/bin/xtra-daemon
+vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
+vendor/etc/lowi.conf
+vendor/etc/sap.conf
+vendor/lib64/hw/vendor.qti.gnss@4.0-impl.so
+vendor/lib64/libaoa.so
+vendor/lib64/libcacertclient.so
+vendor/lib64/libcdfw.so
+vendor/lib64/libcdfw_remote_api.so
+vendor/lib64/libdataitems.so
+vendor/lib64/libizat_client_api.so
+vendor/lib64/libizat_core.so
+vendor/lib64/libjnihelper.so
+vendor/lib64/liblbs_core.so
+vendor/lib64/libloc_api_v02.so
+vendor/lib64/libloc_socket.so
+vendor/lib64/liblocationservice.so
+vendor/lib64/liblocationservice_glue.so
+vendor/lib64/liblowi_client.so
+vendor/lib64/liblowi_wifihal.so
+vendor/lib64/libmmosal.so
+vendor/lib64/libqcc_file_agent.so
+vendor/lib64/libsynergy_loc_api.so
+vendor/lib64/libxtadapter.so
+vendor/lib64/vendor.qti.gnss@1.0.so
+vendor/lib64/vendor.qti.gnss@1.1.so
+vendor/lib64/vendor.qti.gnss@1.2.so
+vendor/lib64/vendor.qti.gnss@2.0.so
+vendor/lib64/vendor.qti.gnss@2.1.so
+vendor/lib64/vendor.qti.gnss@3.0.so
+vendor/lib64/vendor.qti.gnss@4.0-service.so
+vendor/lib64/vendor.qti.gnss@4.0.so
+vendor/lib64/vendor.qti.hardware.cacert@1.0.so
+vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 
 # Graphics firmware
 vendor/firmware/a615_zap.b00
@@ -940,25 +987,6 @@ vendor/lib64/libswvdec.so
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so
 vendor/lib64/vendor.qti.hardware.vpp@1.3.so
-
-# Media (Dolby Vision) - from MIUI V13.0.8.0.SKOMIXM
-vendor/etc/media_codecs_system_default_yupik.xml
-vendor/etc/media_codecs_yupik_v1.xml
-vendor/bin/hw/dolbycodec2|cfef1c14f3cb696580229240590164c846bf14aa
-vendor/etc/dolby_vision.cfg|16447ca0a10b37869737cc15b495e8a3f6763bfa
-vendor/etc/init/dolbycodec2.rc|1ea8b363e94fd4f5410cadceb30de8229fb38045
-vendor/etc/media_codecs_with_dolby_yupik.xml|bbd24a7967257dadc6a4e0a72271fb3053940f1f
-vendor/lib/c2.dolby.avc.dec.so|46d92835722ec8bee6160ecbd74f4876b9605cdb
-vendor/lib/c2.dolby.avc.sec.dec.so|df128db1afa1527b28c6188e414f3f79ecb30293
-vendor/lib/c2.dolby.client.so|33b96ef37f0708f44b3726ef376bc64722d2ed58
-vendor/lib/c2.dolby.egl.so|8d1710568a36178e1742113668626d37d8173c8a
-vendor/lib/c2.dolby.hevc.dec.so|3c1eafc7feffad3bb2279ef027b5d3a441306227
-vendor/lib/c2.dolby.hevc.sec.dec.so|664f12c499bc236628b92d1179e0290b0b5b1bf7
-vendor/lib/c2.dolby.store.so|08d26054d08062a508e53ad2751baa8590a6d3cf
-vendor/lib/libcodec2_hidl@1.0.so:vendor/lib/libcodec2_hidl@1.0.stock.so|443ccbe72e40a0dfb6d8270174aa0a372cbfc181
-vendor/lib/libcodec2_vndk.so:vendor/lib/libcodec2_vndk.stock.so|42e3109ed49a47106f2834320d99da34c41b8221
-vendor/lib/libdolbyottcameracontrol.so|3758b2541004c5d9a2935ed134afbabb66d6a315
-vendor/lib/libdovi.so|185d52f232cfd2ec7156ee5103593ac12f04cb1f
 
 # Mlipay
 vendor/bin/mlipayd@1.1
@@ -1312,6 +1340,7 @@ system_ext/lib/libwfdaac.so
 system_ext/lib/libwfdavenhancements.so
 system_ext/lib/libwfdcommonutils.so
 system_ext/lib/libwfdconfigutils.so
+system_ext/lib/libwfddisplayconfig.so
 system_ext/lib/libwfdmminterface.so
 system_ext/lib/libwfdmmsink.so
 system_ext/lib/libwfdmmsrc_system.so
@@ -1333,6 +1362,7 @@ system_ext/lib64/libmmrtpencoder.so
 system_ext/lib64/libwfdclient.so
 system_ext/lib64/libwfdcommonutils.so
 system_ext/lib64/libwfdconfigutils.so
+system_ext/lib64/libwfddisplayconfig.so
 system_ext/lib64/libwfdmminterface.so
 system_ext/lib64/libwfdmmsink.so
 system_ext/lib64/libwfdnative.so
