@@ -1,8 +1,56 @@
 [
-    {
+  {
+    "repository": "Xiaomi-SD720G-Devices/AOSP-clang",
+    "target_path": "prebuilts/clang/host/linux-x86/clang-r498229b",
+    "branch": "clang-r498229b",
+    "remote": "github"
+  },
+  {
+    "repository": "userariii/hardware_dolby",
+    "target_path": "hardware/dolby",
+    "branch": "main",
+    "remote": "github"
+  },
+  {
+    "repository": "userariii/hardware_Dolby-Vision",
+    "target_path": "hardware/Dolby-Vision",
+    "branch": "master",
+    "remote": "github"
+  },
+  {
+    "repository": "LineageOS/android_hardware_google_pixel",
+    "target_path": "hardware/google/pixel",
+    "branch": "lineage-21.0",
+    "remote": "github"
+  },
+  {
     "repository": "LineageOS/android_hardware_sony_timekeep",
     "target_path": "hardware/sony/timekeep",
-    "branch": "lineage-20",
+    "branch": "lineage-21",
     "remote": "github"
+  },
+  {
+    "repository": "LineageOS/android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "branch": "lineage-21",
+    "remote": "github"
+  },
+  {
+    "repository": "Xiaomi-SD720G-Devices/kernel_xiaomi_sm6250",
+    "target_path": "kernel/xiaomi/sm6250",
+    "branch": "14-OpenELA",
+    "remote": "github"
+  },
+  {
+    "repository": "vendor_xiaomi_miatoll",
+    "target_path": "vendor/xiaomi/miatoll",
+    "branch": "14",
+    "remote": "github"
+  },
+  {
+    "repository": "userariii/vendor-xiaomi-miuicamera",
+    "target_path": "vendor/xiaomi/miuicamera",
+    "branch": "miuicam",
+    "remote": "gitlab"
   }
 ]

@@ -14,9 +14,89 @@
  * limitations under the License.
  */
 
+#include <cstdlib>
+#include <cstring>
+#include <sys/sysinfo.h>
+#include <vector>
+
+#include <android-base/properties.h>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
+
 #include "init_common.h"
 #include "vendor_init.h"
 
+using android::base::GetProperty;
+
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "odm.",
+    "product.",
+    "system.",
+    "vendor.",
+    "system_ext.",
+};
+
+void set_ro_build_prop(const std::string &source, const std::string &prop,
+        const std::string &value, bool product = false) {
+    std::string prop_name;
+
+    if (product) {
+        prop_name = "ro.product." + source + prop;
+    } else {
+        prop_name = "ro." + source + "build." + prop;
+    }
+
+    property_override(prop_name.c_str(), value.c_str(), false);
+}
+
+void set_device_props(const std::string brand, const std::string device, const std::string model) {
+    for (const auto &source : ro_props_default_source_order) {
+        set_ro_build_prop(source, "brand", brand, true);
+        set_ro_build_prop(source, "device", device, true);
+        set_ro_build_prop(source, "model", model, true);
+    }
+}
+
+void load_device_properties() {
+    std::string hwname = GetProperty("ro.boot.hwname", "");
+    std::string region = GetProperty("ro.boot.hwc", "");
+
+    if (hwname == "curtana") {
+        if (region == "Global_TWO") {
+            set_device_props(
+                    "Redmi", "curtana", "Redmi Note 9S");
+            property_override("ro.product.mod_device", "curtana_global");
+        } else if (region == "Global_PA") {
+            set_device_props(
+                    "Redmi", "curtana", "Redmi Note 9S");
+            property_override("ro.product.mod_device", "curtana_global");
+        } else if (region == "India") {
+            set_device_props(
+                    "Redmi", "curtana", "Redmi Note 9 Pro");
+            property_override("ro.product.mod_device", "curtana_in_global");
+        } else if (region == "Japan") {
+            set_device_props(
+                    "Redmi", "curtana", "Redmi Note 9S");
+            property_override("ro.product.mod_device", "curtana_global");
+        }
+    } else if (hwname == "excalibur") {
+        set_device_props(
+                "Redmi", "excalibur", "Redmi Note 9 Pro Max");
+        property_override("ro.product.mod_device", "excalibur_in_global");
+    } else if (hwname == "gram") {
+        set_device_props(
+                "POCO", "gram", "POCO M2 Pro");
+        property_override("ro.product.mod_device", "gram_in_global");
+    } else if (hwname == "joyeuse") {
+        set_device_props(
+                "Redmi", "joyeuse", "Redmi Note 9 Pro");
+        property_override("ro.product.mod_device", "joyeuse_global");
+        property_override("ro.boot.product.hardware.sku", "joyeuse");
+    }
+}
+
 void vendor_load_properties() {
     load_common_properties();
+    load_device_properties();
 }
